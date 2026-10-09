@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Startup Impact — Founder Portal</title><link rel="stylesheet" href="/css/app.css"></head>
+<body>
+<main class="form founder-shell">
+  <section class="formHead">
+    <span class="eyebrow">STARTUP IMPACT · FOUNDER PORTAL</span>
+    <h1 id="founderStartupName">Build your verified startup profile</h1>
+    <p>Most questions are structured choices so your profile can be compared consistently. Your work is saved as you go.</p>
+    <div class="progress"><i id="bar"></i></div>
+    <div class="founder-progress-row"><span id="progressLabel">Question 1 of 75</span><span id="save">Ready</span></div>
+    <div id="reviewNotice" class="review-notice" style="display:none"></div>
+  </section>
+  <section id="question"></section>
+  <section class="founder-evidence panel-card">
+    <div><h2>Supporting Evidence</h2><p>Upload documents the University may need to verify your profile. PDF, JPG, PNG or WEBP, up to 10 MB.</p></div>
+    <div class="evidence-upload-row"><select id="evidenceType"><option value="registration">Registration / Incorporation</option><option value="financial">Revenue / Financial</option><option value="traction">Customer / Traction</option><option value="ip">Patent / IP</option><option value="pilot">Pilot / Validation</option><option value="other">Other supporting document</option></select><input id="evidenceTitle" placeholder="Document title"><input id="evidenceFile" type="file" accept="application/pdf,image/png,image/jpeg,image/webp"><button class="btn-secondary" id="uploadEvidence">Upload</button></div>
+    <div id="evidenceStatus" class="save">No evidence uploaded in this session.</div>
+  </section>
+  <div class="actions"><button class="btn" id="prev">Previous</button><button class="btn primary" id="next">Save & Continue</button><button class="btn primary" id="submit" style="display:none">Submit for verification</button></div>
+  <div class="founder-footnote">Submission does not make the profile public. A University Admin must review and verify it first.</div>
+</main>
+<script src="/js/founder.js"></script>
+</body></html>

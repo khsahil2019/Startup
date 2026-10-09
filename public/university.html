@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Startup Impact — University Venture Showcase</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+</head>
+<body>
+
+  <!-- SITE NAVIGATION (TOP BAR) -->
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <div class="brand-wrapper">
+        <div class="brand-crest" id="crest">RU</div>
+        <div>
+          <div class="brand-title" id="uni-name">Riverside University</div>
+          <div class="brand-subtitle">Startup Impact Ecosystem</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#startups" class="nav-link">Startups</a>
+        <a href="#leadership" class="nav-link">People</a>
+        <a href="#impact" class="nav-link">SDG Impact</a>
+        <a href="#achievements" class="nav-link">Achievements</a>
+        <a href="#events" class="nav-link">Events</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" title="Search" onclick="document.getElementById('searchInput').focus()">🔍</button>
+        <a href="#startups" class="btn-primary">Explore Portfolio</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap" id="home">
+
+    <!-- HERO SHOWCASE (PANEL 1) -->
+    <section class="hero-showcase">
+      <div class="hero-content">
+        <span class="eyebrow">UNIVERSITY · INCUBATION ECOSYSTEM</span>
+        <h1>Startup Impact</h1>
+        <div class="subheading">From Ideas to Scalable Enterprises</div>
+        <p id="uni-about">A showcase of university startups creating economic, social and environmental impact through research-driven entrepreneurship.</p>
+        <a href="#startups" class="btn-primary" style="padding: 12px 24px; font-size: 15px;">Explore Startups →</a>
+      </div>
+      <div class="hero-media">
+        <img id="hero-campus" src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=900&auto=format&fit=crop&q=80" alt="University Campus">
+        <div class="partner-badge">
+          <span>In partnership with</span>
+          <strong>Rafts & Rivers</strong>
+          <span style="opacity:0.8;">· From Ideas to Impact</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ECOSYSTEM STATS (PANEL 1 METRIC PILLS & KPIS) -->
+    <section class="ecosystem-stats" id="impact">
+      <!-- Stage Breakdown Pills -->
+      <div class="stage-pills-row">
+        <div class="stage-pill-card">
+          <div class="stage-icon-circle" style="background:#eff6ff; color:#2563eb;">🏢</div>
+          <div>
+            <div class="val" id="cnt-total">68</div>
+            <div class="lbl">Startups Supported</div>
+          </div>
+        </div>
+        <div class="stage-pill-card">
+          <div class="stage-icon-circle" style="background:#ecfdf5; color:#059669;">🌱</div>
+          <div>
+            <div class="val" id="cnt-incubated">24</div>
+            <div class="lbl">Currently Incubated</div>
+          </div>
+        </div>
+        <div class="stage-pill-card">
+          <div class="stage-icon-circle" style="background:#f0fdf4; color:#16a34a;">🎓</div>
+          <div>
+            <div class="val" id="cnt-graduated">18</div>
+            <div class="lbl">Graduated Startups</div>
+          </div>
+        </div>
+        <div class="stage-pill-card">
+          <div class="stage-icon-circle" style="background:#fffbeb; color:#d97706;">⚡</div>
+          <div>
+            <div class="val" id="cnt-preinc">12</div>
+            <div class="lbl">Pre-incubated</div>
+          </div>
+        </div>
+        <div class="stage-pill-card">
+          <div class="stage-icon-circle" style="background:#f5f3ff; color:#7c3aed;">💡</div>
+          <div>
+            <div class="val" id="cnt-ideation">14</div>
+            <div class="lbl">Ideation Stage</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Financial & Impact KPI Row -->
+      <div class="kpi-metrics-row">
+        <div class="kpi-metric-card">
+          <div class="icon-head" style="color:#059669;">📈</div>
+          <div class="big-num" id="stat-revenue">—</div>
+          <div class="sub-label">Revenue Generated</div>
+        </div>
+        <div class="kpi-metric-card">
+          <div class="icon-head" style="color:#0d9488;">💰</div>
+          <div class="big-num" id="stat-funding">—</div>
+          <div class="sub-label">External Funding Raised</div>
+        </div>
+        <div class="kpi-metric-card">
+          <div class="icon-head" style="color:#e11d48;">👥</div>
+          <div class="big-num" id="stat-jobs">—</div>
+          <div class="sub-label">Jobs Created</div>
+        </div>
+        <div class="kpi-metric-card">
+          <div class="icon-head" style="color:#7c3aed;">📜</div>
+          <div class="big-num" id="stat-ip">—</div>
+          <div class="sub-label">Patents / IP Filed</div>
+        </div>
+        <div class="kpi-metric-card">
+          <div class="icon-head" style="color:#ec4899;">👩‍💼</div>
+          <div class="big-num" id="stat-women">—</div>
+          <div class="sub-label">Women Founders</div>
+        </div>
+        <div class="kpi-metric-card">
+          <div class="icon-head" style="color:#2563eb;">🎓</div>
+          <div class="big-num" id="stat-students">—</div>
+          <div class="sub-label">Student Founders</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK NAV BUTTONS BAR -->
+    <div class="quick-nav-bar">
+      <a href="#about" class="quick-nav-item"><span class="icon">👁️</span> Our Vision</a>
+      <a href="#about" class="quick-nav-item"><span class="icon">🎯</span> Our Mission</a>
+      <a href="#leadership" class="quick-nav-item"><span class="icon">👥</span> Leadership & Team</a>
+      <a href="#startups" class="quick-nav-item"><span class="icon">🚀</span> Startup Portfolio</a>
+      <a href="#impact" class="quick-nav-item"><span class="icon">🌍</span> SDG Impact</a>
+      <a href="#achievements" class="quick-nav-item"><span class="icon">⭐</span> Achievements</a>
+      <a href="#events" class="quick-nav-item"><span class="icon">📅</span> Events</a>
+    </div>
+
+    <!-- FEATURED STARTUPS CAROUSEL -->
+    <section class="featured-section">
+      <div class="section-header-row">
+        <h2>Featured Startups</h2>
+        <div class="carousel-nav-arrows">
+          <button class="carousel-arrow" id="carouselPrev" title="Previous">‹</button>
+          <button class="carousel-arrow" id="carouselNext" title="Next">›</button>
+        </div>
+      </div>
+      <div class="featured-cards-grid" id="featuredGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <section id="about" class="panel-card" style="margin: 28px 0; padding: 28px;">
+      <div class="directory-title-area"><h2>About the Startup Impact Ecosystem</h2><p id="uni-vision-line">Building measurable ventures from ideas, research and institutional support.</p></div>
+      <div class="about-grid">
+        <div><h3>Our Vision</h3><p id="uni-vision">—</p></div>
+        <div><h3>Our Mission</h3><p id="uni-mission">—</p></div>
+      </div>
+    </section>
+
+    <!-- STARTUP DIRECTORY / LISTING PAGE (PANEL 2) -->
+    <section class="directory-section" id="startups">
+      <div class="directory-title-area">
+        <h2>Our Startups</h2>
+        <p>Innovative solutions for real-world challenges</p>
+      </div>
+
+      <!-- Search & Filters -->
+      <div class="filter-bar-container">
+        <div class="search-filter-row">
+          <div class="search-box">
+            <span>🔍</span>
+            <input type="text" id="searchInput" placeholder="Search startups by name, sector, keyword...">
+          </div>
+          <button class="filter-btn-outline" id="filterToggleBtn">Filter ▾</button>
+        </div>
+
+        <div class="stage-filter-tabs">
+          <button class="filter-pill active" data-filter="all">All (6)</button>
+          <button class="filter-pill" data-filter="incubated">Currently Incubated (2)</button>
+          <button class="filter-pill" data-filter="graduated">Graduated (1)</button>
+          <button class="filter-pill" data-filter="pre-incubated">Pre-incubated (2)</button>
+          <button class="filter-pill" data-filter="ideation">Ideation (1)</button>
+        </div>
+      </div>
+
+      <!-- Startups Cards Grid (Panel 2) -->
+      <div class="startups-grid" id="startupsGrid">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- INSTITUTIONAL LEADERSHIP -->
+    <section id="leadership" style="margin-bottom: 50px;">
+      <div class="directory-title-area">
+        <h2>Incubation Leadership & Mentors</h2>
+        <p>Experienced academic and venture leaders steering institutional spinouts.</p>
+      </div>
+      <div class="team-grid" id="leadersGrid"></div>
+    </section>
+
+    <!-- ACHIEVEMENTS & EVENTS -->
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 60px;">
+      <section id="achievements">
+        <div class="directory-title-area">
+          <h2>Institutional Achievements</h2>
+        </div>
+        <div id="achievementsList" style="display:flex; flex-direction:column; gap:14px;"></div>
+      </section>
+
+      <section id="events">
+        <div class="directory-title-area">
+          <h2>Upcoming & Recent Events</h2>
+        </div>
+        <div id="eventsList" style="display:flex; flex-direction:column; gap:14px;"></div>
+      </section>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>
+        <strong>Startup Impact Platform</strong> · Developed for Riverside University Incubation Ecosystem
+      </div>
+      <div>
+        Venture-development and evaluation framework supported by <strong>Rafts & Rivers</strong>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/university.js"></script>
+</body>
+</html>

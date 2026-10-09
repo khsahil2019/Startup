@@ -1,0 +1,23 @@
+{
+  "name":"startup-impact-platform",
+  "version":"2.0.0",
+  "private":true,
+  "type":"module",
+  "scripts":{
+    "dev":"node server/index.js",
+    "start":"NODE_ENV=production node server/index.js",
+    "test":"node --test",
+    "seed":"node database/seeds/seed.js"
+  },
+  "dependencies":{
+    "express":"^4.21.2",
+    "better-sqlite3":"^11.8.1",
+    "bcryptjs":"^2.4.3",
+    "jsonwebtoken":"^9.0.2",
+    "multer":"^1.4.5-lts.1",
+    "helmet":"^8.0.0",
+    "cors":"^2.8.5",
+    "dotenv":"^16.4.7",
+    "uuid":"^11.0.5"
+  }
+}

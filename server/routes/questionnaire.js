@@ -1,0 +1,1 @@
+import express from "express"; import {QUESTIONNAIRE,SECTIONS} from "../questionnaire.js"; export const router=express.Router();router.get("/",(q,s)=>s.json({count:QUESTIONNAIRE.length,sections:SECTIONS,questions:QUESTIONNAIRE}));

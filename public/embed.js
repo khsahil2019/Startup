@@ -1,0 +1,1 @@
+(()=>{const el=document.currentScript,slug=el?.dataset?.university;if(!el||!slug)return;const frame=document.createElement("iframe");frame.src=new URL("/u/"+slug,el.src).href;frame.title="Startup Impact";frame.style="width:100%;min-height:2200px;border:0;display:block";frame.loading="lazy";el.parentNode.insertBefore(frame,el)})();

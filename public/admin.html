@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Console — Startup Impact</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+
+  <!-- LOGIN SCREEN -->
+  <div id="loginScreen" class="login-screen">
+    <div class="login-card">
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+        <div class="brand-crest">RU</div>
+        <div>
+          <h2 style="font-size: 20px; font-weight:800; color: #0f172a; line-height:1.2;">Startup Impact</h2>
+          <div style="font-size: 11px; text-transform:uppercase; color:#64748b; font-weight:600;">Admin Console</div>
+        </div>
+      </div>
+
+      <p style="font-size:14px; color:#64748b; margin-bottom:24px;">Sign in to verify founder submissions, manage ventures, and administer institutional ecosystems.</p>
+
+      <form id="loginForm" onsubmit="return false;" style="display:flex; flex-direction:column; gap:14px;">
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="loginEmail" placeholder="admin@demo.edu" required>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="loginPassword" placeholder="••••••••••••" required>
+        </div>
+        <button id="loginBtn" class="btn-primary" style="justify-content:center; padding:12px; margin-top:8px;">Sign In to Console →</button>
+        <div id="loginError" style="font-size:12.5px; color:#e11d48; text-align:center; min-height:18px;"></div>
+      </form>
+
+      <!-- Quick Demo Credentials Box -->
+      <div class="quick-creds-box">
+        <div style="font-size:11px; font-weight:700; color:#475569; text-transform:uppercase;">Quick Demo Sign-In:</div>
+        <button class="quick-cred-btn" onclick="fillCreds('superadmin@example.com', 'ChangeMe123!')">
+          <span>👑 Super Admin</span>
+          <span style="color:#64748b; font-size:11px;">superadmin@example.com</span>
+        </button>
+        <button class="quick-cred-btn" onclick="fillCreds('admin@demo.edu', 'ChangeMe123!')">
+          <span>🏛️ University Admin</span>
+          <span style="color:#64748b; font-size:11px;">admin@demo.edu</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN DASHBOARD LAYOUT -->
+  <div id="adminApp" class="admin-layout" style="display:none;">
+    
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-crest" style="width:34px; height:34px; font-size:15px;">RU</div>
+        <div>
+          <div style="font-size: 15px; font-weight:800; color:#ffffff; line-height:1.2;">Startup Impact</div>
+          <div style="font-size: 10.5px; color:#94a3b8; font-weight:600; text-transform:uppercase;">Console v2.0</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-nav-item active" data-view="dashboard">
+          <span>📊</span> Dashboard
+        </div>
+        <div class="sidebar-nav-item" data-view="startups">
+          <span>🚀</span> Startups
+        </div>
+        <div class="sidebar-nav-item" data-view="submissions">
+          <span>📝</span> Submissions
+          <span class="badge-count" id="pendingSubBadge" style="display:none;">0</span>
+        </div>
+        <div class="sidebar-nav-item" data-view="evidence">
+          <span>📎</span> Evidence Verification
+        </div>
+        <div class="sidebar-nav-item" data-view="universities" id="navUniversities">
+          <span>🏛️</span> Universities
+        </div>
+        <div class="sidebar-nav-item" data-view="incubators">
+          <span>🔬</span> Incubation Centres
+        </div>
+        <div class="sidebar-nav-item" data-view="audit">
+          <span>📜</span> Audit Trail
+        </div>
+        <div class="sidebar-nav-item" data-view="users" id="navUsers">
+          <span>👥</span> User Management
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <div style="width:30px; height:30px; border-radius:50%; background:#2563eb; color:white; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:12px;" id="userInitial">A</div>
+          <div style="line-height:1.2;">
+            <div style="font-size:12.5px; font-weight:700; color:#ffffff;" id="userName">Admin</div>
+            <div style="font-size:10.5px; color:#94a3b8;" id="userRole">admin</div>
+          </div>
+        </div>
+        <button id="logoutBtn" style="color:#ef4444; font-size:14px; background:none;" title="Sign out">🚪</button>
+      </div>
+    </aside>
+
+    <!-- MAIN ADMIN AREA -->
+    <div class="admin-main">
+      
+      <!-- TOP BAR -->
+      <header class="admin-topbar">
+        <div style="display:flex; align-items:center; gap:16px;">
+          <strong id="viewTitle" style="font-size:16px; color:#0f172a;">Dashboard Overview</strong>
+          <span id="tenantTag" class="pill-stage incubated">Riverside University</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <a href="/u/demo" target="_blank" class="btn-secondary" style="font-size:12.5px;">🌐 View Public Portal</a>
+          <button class="btn-primary" id="openNewStartupModalBtn" style="font-size:12.5px;">+ New Startup</button>
+        </div>
+      </header>
+
+      <!-- VIEW CONTAINER -->
+      <main class="admin-content" id="adminContentArea">
+        <!-- Rendered by admin.js -->
+      </main>
+
+    </div>
+  </div>
+
+  <!-- MODAL: CREATE STARTUP -->
+  <div class="admin-modal-overlay" id="createStartupModal">
+    <div class="admin-modal-card">
+      <div class="modal-header">
+        <h3 style="font-size:18px; font-weight:800;">Register New Startup</h3>
+        <button onclick="closeModal('createStartupModal')" style="font-size:18px; color:#64748b;">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Startup Name *</label>
+          <input type="text" id="newStartupName" placeholder="e.g. TerraGrow Bio" required>
+        </div>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px;">
+          <div class="form-group">
+            <label>Sector *</label>
+            <select id="newStartupSector">
+              <option value="AgriTech">AgriTech</option>
+              <option value="Healthcare">Healthcare</option>
+              <option value="CleanTech">CleanTech</option>
+              <option value="DeepTech">DeepTech</option>
+              <option value="FoodTech">FoodTech</option>
+              <option value="EdTech">EdTech</option>
+              <option value="FinTech">FinTech</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Stage *</label>
+            <select id="newStartupStage">
+              <option value="ideation">Ideation</option>
+              <option value="pre-incubated">Pre-incubated</option>
+              <option value="incubated" selected>Currently Incubated</option>
+              <option value="graduated">Graduated</option>
+            </select>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px;">
+          <div class="form-group">
+            <label>Venture Type</label>
+            <select id="newStartupType">
+              <option value="student">Internal Student Venture</option>
+              <option value="external">External Incubated Venture</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Founder Name</label>
+            <input type="text" id="newStartupFounder" placeholder="e.g. Ramesh Kumar">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Founder Email (for invitation link)</label>
+          <input type="email" id="newStartupEmail" placeholder="founder@terragrow.io">
+        </div>
+        <div class="form-group">
+          <label>Summary / Elevator Pitch</label>
+          <textarea id="newStartupSummary" rows="2" placeholder="Brief description of the technology and mission..."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" onclick="closeModal('createStartupModal')">Cancel</button>
+        <button class="btn-primary" id="submitCreateStartupBtn">Create & Generate Invite</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: FOUNDER INVITE LINK -->
+  <div class="admin-modal-overlay" id="inviteModal">
+    <div class="admin-modal-card">
+      <div class="modal-header">
+        <h3 style="font-size:18px; font-weight:800;">Founder Invitation Link Generated</h3>
+        <button onclick="closeModal('inviteModal')" style="font-size:18px; color:#64748b;">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:13.5px; color:#64748b;">Share this secure one-time link with the founder to let them fill out the 75-question diagnostic questionnaire:</p>
+        <div class="form-group">
+          <input type="text" id="inviteUrlField" readonly style="font-family:monospace; font-size:12.5px; background:#f8fafc;">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-primary" onclick="copyInviteUrl()">Copy Link to Clipboard</button>
+        <button class="btn-secondary" onclick="closeModal('inviteModal')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: REVIEW SUBMISSION DRAWER -->
+  <div class="admin-modal-overlay" id="reviewModal">
+    <div class="admin-modal-card" style="max-width: 860px;">
+      <div class="modal-header">
+        <div>
+          <h3 style="font-size:18px; font-weight:800;" id="reviewStartupTitle">Submission Review</h3>
+          <span style="font-size:12px; color:#64748b;" id="reviewVersionSubtitle">Version 1 · Reviewing Founder Responses</span>
+        </div>
+        <button onclick="closeModal('reviewModal')" style="font-size:18px; color:#64748b;">✕</button>
+      </div>
+      <div class="modal-body" id="reviewModalBody" style="max-height: 65vh; overflow-y:auto;">
+        <!-- Filled by JS -->
+      </div>
+      <div class="modal-footer">
+        <input type="text" id="reviewNoteInput" placeholder="Reviewer notes / feedback for founder..." style="flex:1; border:1px solid #cbd5e1; padding:8px 12px; border-radius:6px; font-size:13px;">
+        <button class="btn-secondary" style="color:#d97706;" onclick="submitReviewAction('changes_requested')">Request Changes</button>
+        <button class="btn-primary" style="background:#059669;" onclick="submitReviewAction('verified')">Approve & Publish Profile</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>

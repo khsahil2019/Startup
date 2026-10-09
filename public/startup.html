@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Startup Profile — Startup Impact</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+</head>
+<body>
+
+  <!-- SITE NAVIGATION (TOP BAR) -->
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <div class="brand-wrapper">
+        <div class="brand-crest" id="crest">RU</div>
+        <div>
+          <div class="brand-title" id="nav-brand-title">Riverside University</div>
+          <div class="brand-subtitle">Startup Impact Ecosystem</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a id="uni-home-link" href="/u/demo#home" class="nav-link">Home</a>
+        <a id="uni-about-link" href="/u/demo#about" class="nav-link">About</a>
+        <a id="uni-startups-link" href="/u/demo#startups" class="nav-link active">Startups</a>
+        <a id="uni-people-link" href="/u/demo#leadership" class="nav-link">People</a>
+        <a id="uni-impact-link" href="/u/demo#impact" class="nav-link">SDG Impact</a>
+        <a id="uni-achievements-link" href="/u/demo#achievements" class="nav-link">Achievements</a>
+        <a id="uni-events-link" href="/u/demo#events" class="nav-link">Events</a>
+              </nav>
+      <div class="nav-actions">
+        <a id="back-university" href="/u/demo#startups" class="btn-secondary">← Back to University</a>
+        <button class="btn-primary" onclick="window.print()">Print Report</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    
+    <!-- BREADCRUMBS -->
+    <div class="breadcrumbs-bar">
+      <a id="crumb-university" href="/u/demo">Home</a>
+      <span>›</span>
+      <a href="/u/demo#startups">Startups</a>
+      <span>›</span>
+      <strong id="crumb-name" style="color:var(--text-main);">Startup</strong>
+    </div>
+
+    <!-- MAIN PROFILE CONTAINER -->
+    <div id="startupProfileArea">
+      <!-- Dynamic render by startup.js -->
+      <div style="padding: 60px 0; text-align: center; color: #64748b;">Loading startup profile...</div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>
+        <strong>Startup Impact Platform</strong> · Developed for Riverside University Incubation Ecosystem
+      </div>
+      <div>
+        Venture-development and evaluation framework supported by <strong>Rafts & Rivers</strong>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/startup.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+id,section,field_type,public_use,engine_use
+Q01,"Founder & Journey",select,yes,derived
+Q02,"Founder & Journey",select,yes,derived
+Q03,"Founder & Journey",select,yes,derived
+Q04,"Founder & Journey",select,yes,derived
+Q05,"Founder & Journey",select,yes,derived
+Q06,"Founder & Journey",select,yes,derived
+Q07,"Founder & Journey",select,yes,derived
+Q08,"Founder & Journey",select,yes,derived
+Q09,"Founder & Journey",select,yes,derived
+Q10,"Founder Context",select,yes,derived
+Q11,"Founder Context",select,yes,derived
+Q12,"Founder Context",select,yes,derived
+Q13,"Founder Context",select,yes,derived
+Q14,"Founder Context",select,yes,derived
+Q15,"Founder Context",select,yes,derived
+Q16,"Founder Context",select,yes,derived
+Q17,"Startup & Problem",select,yes,derived
+Q18,"Startup & Problem",textarea,yes,derived
+Q19,"Startup & Problem",select,yes,derived
+Q20,"Startup & Problem",select,yes,derived
+Q21,"Startup & Problem",select,yes,derived
+Q22,"Startup & Problem",select,yes,derived
+Q23,"Startup & Problem",select,yes,derived
+Q24,"Startup & Problem",select,yes,derived
+Q25,"Startup & Problem",select,yes,derived
+Q26,"Startup & Problem",select,yes,derived
+Q27,"Product, Clients & Proof",select,yes,derived
+Q28,"Product, Clients & Proof",select,yes,derived
+Q29,"Product, Clients & Proof",select,yes,derived
+Q30,"Product, Clients & Proof",select,yes,derived
+Q31,"Product, Clients & Proof",select,yes,derived
+Q32,"Product, Clients & Proof",select,yes,derived
+Q33,"Product, Clients & Proof",select,yes,derived
+Q34,"Product, Clients & Proof",select,yes,derived
+Q35,"Product, Clients & Proof",select,yes,derived
+Q36,"Product, Clients & Proof",select,yes,derived
+Q37,"Market & Competition",select,yes,derived
+Q38,"Market & Competition",select,yes,derived
+Q39,"Market & Competition",select,yes,derived
+Q40,"Market & Competition",select,yes,derived
+Q41,"Market & Competition",select,yes,derived
+Q42,"Market & Competition",select,yes,derived
+Q43,"Market & Competition",select,yes,derived
+Q44,"Market & Competition",select,yes,derived
+Q45,"Team & Execution",select,yes,derived
+Q46,"Team & Execution",select,yes,derived
+Q47,"Team & Execution",select,yes,derived
+Q48,"Team & Execution",select,yes,derived
+Q49,"Team & Execution",select,yes,derived
+Q50,"Team & Execution",select,yes,derived
+Q51,"Team & Execution",select,yes,derived
+Q52,"Business Model & Scale",select,yes,derived
+Q53,"Business Model & Scale",select,yes,derived
+Q54,"Business Model & Scale",select,yes,derived
+Q55,"Business Model & Scale",select,yes,derived
+Q56,"Business Model & Scale",select,yes,derived
+Q57,"Business Model & Scale",select,yes,derived
+Q58,"Business Model & Scale",select,yes,derived
+Q59,"Business Model & Scale",select,yes,derived
+Q60,"IP, Data & AI",select,yes,derived
+Q61,"IP, Data & AI",select,yes,derived
+Q62,"IP, Data & AI",select,yes,derived
+Q63,"IP, Data & AI",select,yes,derived
+Q64,"IP, Data & AI",select,yes,derived
+Q65,"IP, Data & AI",select,yes,derived
+Q66,"IP, Data & AI",select,yes,derived
+Q67,"SDG & Impact",select,yes,derived
+Q68,"SDG & Impact",select,yes,derived
+Q69,"SDG & Impact",select,yes,derived
+Q70,"SDG & Impact",select,yes,derived
+Q71,"SDG & Impact",select,yes,derived
+Q72,"SDG & Impact",select,yes,derived
+Q73,"Funding, Road Ahead & Risk",select,yes,derived
+Q74,"Funding, Road Ahead & Risk",select,yes,derived
+Q75,"Funding, Road Ahead & Risk",select,yes,derived

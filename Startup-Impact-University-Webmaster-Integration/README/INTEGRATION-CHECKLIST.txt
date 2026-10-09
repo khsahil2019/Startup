@@ -1,0 +1,7 @@
+STARTUP IMPACT — ONE-TIME CHECKLIST
+
+[ ] Add menu item: Startup Impact
+[ ] Point it to the University-specific Startup Impact URL
+[ ] Publish the University website
+[ ] Open the link and confirm the correct University page appears
+[ ] Confirm Back to University returns to the University's official website
