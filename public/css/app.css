@@ -2242,3 +2242,134 @@ button {
   border-color: var(--accent-blue);
   color: var(--accent-blue);
 }
+
+/* ==========================================================================
+   STARTUP IMPACT REFERENCE-ALIGNED UI OVERRIDES — 2026-10
+   Purpose: premium institutional showcase, not a generic stacked card site.
+   ========================================================================== */
+:root {
+  --si-ink: #101a35;
+  --si-muted: #637493;
+  --si-line: #dce5f1;
+  --si-surface: #ffffff;
+  --si-bg: #f4f7fb;
+  --si-blue: #145ee8;
+  --si-green: #0b9b70;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--si-bg); color: var(--si-ink); }
+.wrap { width: min(100% - 40px, 1480px); max-width: 1480px; }
+.site-nav { border-bottom: 1px solid #d8e2ef; box-shadow: 0 3px 16px rgba(18, 40, 77, .055); }
+.nav-inner { min-height: 72px; height: auto; gap: 22px; }
+.brand-title { color: var(--si-ink); font-weight: 800; letter-spacing: -.35px; }
+.brand-subtitle { text-transform: uppercase; letter-spacing: .075em; font-size: 10px; font-weight: 700; }
+.nav-links { gap: clamp(10px, 1.3vw, 24px); }
+.nav-link { font-weight: 650; }
+main.wrap { padding-bottom: 26px; }
+.breadcrumbs-bar { margin: 20px 0 16px; }
+.startup-header-banner {
+  min-height: 170px; padding: 28px 32px; border-radius: 18px;
+  border-color: var(--si-line); box-shadow: 0 5px 18px rgba(24, 48, 86, .045);
+  background: linear-gradient(110deg,#fff 0%,#fff 63%,#f1f7ff 100%);
+}
+.header-left-col { gap: 22px; min-width: 0; }
+.startup-logo-box { width: 88px; height: 88px; border-radius: 18px; box-shadow: 0 3px 12px rgba(20,50,90,.10); }
+.startup-meta h1 { font-size: clamp(28px, 2.2vw, 36px); letter-spacing: -.9px; }
+.startup-meta .tagline { font-size: 16px; }
+.header-actions-col { min-width: 250px; max-width: 390px; }
+.quote-bubble { max-width: 390px; font-size: 13px; border-radius: 12px; padding: 12px 16px; }
+.founder-facts-card {
+  grid-template-columns: minmax(270px, .85fr) minmax(0, 2fr); gap: 34px;
+  border-radius: 18px; padding: 26px 30px; border-color: var(--si-line);
+  box-shadow: 0 5px 18px rgba(24,48,86,.04);
+}
+.founder-photo { width: 82px; height: 82px; }
+.founder-info .credentials { font-size: 12px; }
+.facts-grid { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 22px 24px; }
+.fact-item .label { letter-spacing: .055em; }
+.fact-item .value { font-size: 14px; overflow-wrap: anywhere; }
+.kpi-summary-strip { grid-template-columns: repeat(5,minmax(0,1fr)); gap: 14px; }
+.kpi-summary-card { min-height: 82px; padding: 17px 18px; border-radius: 14px; }
+.kpi-data .big-val { font-size: clamp(17px,1.35vw,23px); letter-spacing: -.45px; }
+.kpi-data .tag-desc { font-size: 11.5px; line-height: 1.3; }
+.detail-tabs-bar {
+  position: sticky; top: 72px; z-index: 40; display: flex; flex-wrap: nowrap;
+  gap: 4px; padding: 7px; border-radius: 14px; border-color: var(--si-line);
+  box-shadow: 0 5px 18px rgba(24,48,86,.07); scrollbar-width: thin;
+}
+.tab-btn { padding: 11px 15px; font-size: 12.5px; border-radius: 9px; flex: 0 0 auto; }
+.tab-btn.active { background: var(--si-ink); box-shadow: 0 3px 8px rgba(16,26,53,.16); }
+.tab-panel-container { margin-bottom: 52px; }
+.panel-card {
+  border-radius: 18px; border-color: var(--si-line); padding: clamp(22px,2.3vw,34px);
+  box-shadow: 0 5px 18px rgba(24,48,86,.04); margin-bottom: 22px;
+}
+.panel-card h2 { font-size: clamp(21px,1.7vw,27px); letter-spacing: -.55px; }
+.panel-header-badge { padding-bottom: 17px; margin-bottom: 20px; border-bottom: 1px solid var(--si-line); }
+.valuation-hero-stat, .investability-two-col, .uniqueness-grid, .revenue-two-col {
+  gap: 22px;
+}
+.bar-track { background: #e9eff8; border-radius: 99px; overflow: hidden; }
+.bar-fill { border-radius: 99px; }
+.timeline-step-card, .clients-kpi-card, .uniqueness-statement-card {
+  border-radius: 13px; border-color: var(--si-line);
+}
+.site-footer { margin-top: 52px; }
+.site-footer .wrap { max-width: 1480px; }
+.startups-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; }
+.featured-cards-grid { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px; }
+.hero-showcase { border-radius: 20px; overflow: hidden; }
+@media (min-width: 1280px) {
+  .wrap { width: min(100% - 64px, 1480px); }
+  .startup-header-banner { padding: 30px 36px; }
+  .founder-facts-card { grid-template-columns: 360px minmax(0,1fr); }
+  .tab-btn { padding-inline: 16px; }
+}
+@media (max-width: 1100px) {
+  .nav-links { gap: 10px; }
+  .nav-link { font-size: 12px; }
+  .wrap { width: min(100% - 32px, 1480px); }
+  .kpi-summary-strip { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .startups-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 820px) {
+  .nav-inner { flex-wrap: wrap; padding: 10px 0; }
+  .nav-links { order: 3; width: 100%; display: flex; overflow-x: auto; padding: 5px 0 1px; }
+  .nav-actions { margin-left: auto; }
+  .startup-header-banner { align-items: stretch; flex-direction: column; }
+  .header-actions-col { align-items: stretch; max-width: none; min-width: 0; }
+  .quote-bubble { max-width: none; text-align: left; }
+  .founder-facts-card { grid-template-columns: 1fr; gap: 24px; }
+  .facts-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .detail-tabs-bar { top: 0; }
+  .kpi-summary-strip { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 560px) {
+  .wrap { width: min(100% - 24px, 1480px); padding-left: 0; padding-right: 0; }
+  .nav-inner { padding-left: 12px; padding-right: 12px; }
+  .brand-title { font-size: 14px; }
+  .brand-subtitle { font-size: 9px; }
+  .nav-actions .btn-primary, .nav-actions .btn-secondary { padding: 8px 10px; font-size: 11px; }
+  .startup-header-banner, .founder-facts-card, .panel-card { padding: 18px; }
+  .header-left-col { align-items: flex-start; gap: 13px; }
+  .startup-logo-box { width: 64px; height: 64px; }
+  .startup-meta h1 { font-size: 25px; }
+  .facts-grid { grid-template-columns: 1fr 1fr; gap: 16px 10px; }
+  .fact-item .icon { font-size: 14px; }
+  .fact-item .label { font-size: 9px; }
+  .fact-item .value { font-size: 12px; }
+  .kpi-summary-strip { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 9px; }
+  .kpi-summary-card { padding: 12px 10px; gap: 9px; min-height: 72px; }
+  .kpi-icon-wrap { width: 32px; height: 32px; font-size: 15px; }
+  .kpi-data .big-val { font-size: 16px; }
+  .kpi-data .tag-desc { font-size: 10px; }
+  .detail-tabs-bar { margin-left: 0; margin-right: 0; }
+  .tab-btn { padding: 10px 12px; font-size: 12px; }
+  .startups-grid, .featured-cards-grid { grid-template-columns: 1fr; }
+}
+
+/* Keep the profile's founder/facts composition side-by-side on normal laptop/tablet widths. */
+@media (min-width: 821px) and (max-width: 1100px) {
+  .founder-facts-card { grid-template-columns: minmax(235px, .85fr) minmax(0, 2fr); }
+  .facts-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}

@@ -1335,7 +1335,7 @@ for (const s of startupsData) {
   `).run(
     startupId,
     JSON.stringify(s.answers),
-    JSON.stringify(s.metrics)
+    JSON.stringify({...s.metrics, facts: s.facts || {}, quote: s.quote || ''})
   );
   const submissionId = subRes.lastInsertRowid;
 

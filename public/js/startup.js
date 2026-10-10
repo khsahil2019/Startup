@@ -66,14 +66,15 @@ function renderSDGIcon(no, title, color) {
     $("#crumb-name").textContent = s.name;
 
     // Derived values with fallbacks
-    const valCr = m.valuation?.valueCr || 2.80;
-    const valLow = m.valuation?.lowCr || (valCr * 0.8).toFixed(2);
-    const valHigh = m.valuation?.highCr || (valCr * 1.2).toFixed(2);
-    const invScore = m.investability?.score || 8.6;
-    const aiScore = m.ai_resilience?.score || 8.1;
-    const sdgScore = m.sdg_impact?.score || 8.2;
-    const revStr = m.clients_revenue?.revenue_cr || a.Q31 || "₹1.8 Cr";
-    const quoteText = s.quote || a.Q18 || "Using innovative deep technology to build scalable and sustainable impact.";
+    const valCr = m.valuation?.valueCr ?? "—";
+    const valLow = m.valuation?.lowCr ?? "—";
+    const valHigh = m.valuation?.highCr ?? "—";
+    const invScore = m.investability?.score ?? "—";
+    const aiScore = m.ai_resilience?.score ?? "—";
+    const sdgScore = m.sdg_impact?.score ?? "—";
+    const revStr = m.clients_revenue?.revenue_cr || a.Q31 || "Not disclosed";
+    const quoteText = m.quote || a.Q18 || s.summary || "Startup profile";
+    const facts = m.facts || {};
 
     const stageDisplay = s.stage === "incubated" ? "Currently Incubated" :
                          s.stage === "graduated" ? "Graduated" :
@@ -119,7 +120,7 @@ function renderSDGIcon(no, title, color) {
           <div class="founder-info">
             <h3>${founder.name} <a href="https://linkedin.com" target="_blank" style="color:#0a66c2; font-size:14px;">in</a></h3>
             <div class="role">${founder.role || "Founder & CEO"}</div>
-            <div class="credentials">M.Sc. Agricultural Engineering, IIT<br>5+ years in precision farming</div>
+            <div class="credentials">${facts.education || "Education not provided"}<br>${facts.experience || "Experience not provided"}</div>
           </div>
         </div>
 
@@ -128,42 +129,42 @@ function renderSDGIcon(no, title, color) {
             <span class="icon">📅</span>
             <div>
               <div class="label">Year of Incorporation</div>
-              <div class="value">2023</div>
+              <div class="value">${facts.incorporation_year || "Not provided"}</div>
             </div>
           </div>
           <div class="fact-item">
             <span class="icon">👥</span>
             <div>
               <div class="label">Team Size</div>
-              <div class="value">8 Members</div>
+              <div class="value">${facts.team_size || team.length || "Not provided" } Members</div>
             </div>
           </div>
           <div class="fact-item">
             <span class="icon">📍</span>
             <div>
               <div class="label">Location</div>
-              <div class="value">${uni.name || "University"}</div>
+              <div class="value">${facts.location || uni.name || "Not provided"}</div>
             </div>
           </div>
           <div class="fact-item">
             <span class="icon">💰</span>
             <div>
               <div class="label">Funding Raised</div>
-              <div class="value">₹1.5 Cr (Seed)</div>
+              <div class="value">${facts.funding_raised || "Not disclosed"}</div>
             </div>
           </div>
           <div class="fact-item">
             <span class="icon">📈</span>
             <div>
               <div class="label">Current Stage</div>
-              <div class="value">Early Revenue</div>
+              <div class="value">${facts.current_stage || stageDisplay}</div>
             </div>
           </div>
           <div class="fact-item">
             <span class="icon">🌐</span>
             <div>
               <div class="label">Website</div>
-              <div class="value"><a href="${s.website_url || "#"}" target="_blank" style="color:#2563eb;">www.agrisense.in</a></div>
+              <div class="value"><a href="${facts.website || s.website_url || "#"}" target="_blank" rel="noopener" style="color:#2563eb;">${facts.website || s.website_url || "Not provided"}</a></div>
             </div>
           </div>
         </div>
@@ -242,11 +243,11 @@ function renderSDGIcon(no, title, color) {
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px;">
             <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 20px;">
               <h4 style="font-size: 15px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">The Core Problem</h4>
-              <p style="font-size: 13.5px; color: #64748b; line-height: 1.5;">The founder identifies a specific customer problem and the evidence submitted for it is available to the University verification team.</p>
+              <p style="font-size: 13.5px; color: #64748b; line-height: 1.5;">${a.Q3 || a.Q4 || "Problem statement not provided in the published profile."}</p>
             </div>
             <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 20px;">
               <h4 style="font-size: 15px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">The AgriSense Solution</h4>
-              <p style="font-size: 13.5px; color: #64748b; line-height: 1.5;">The solution, technology and delivery model are derived from the founder questionnaire and approved institutional profile.</p>
+              <p style="font-size: 13.5px; color: #64748b; line-height: 1.5;">${a.Q18 || a.Q45 || "Solution details not provided in the published profile."}</p>
             </div>
           </div>
         </div>
@@ -257,9 +258,9 @@ function renderSDGIcon(no, title, color) {
           </div>
           <div style="display: flex; flex-direction: column; gap: 14px;">
             ${(m.business_plan || [
-              { no: 1, title: "Executive Summary", summary: "AgriSense addresses productivity gaps for 120M+ Indian smallholder farmers through affordable sensing and AI telemetry." },
-              { no: 2, title: "Market & Opportunity", summary: "Targeting a $4.2B precision agriculture market with low churn and subscription-based enterprise FPO packages." },
-              { no: 3, title: "Go-To-Market & Economics", summary: "B2B2C distribution via agricultural cooperatives, achieving positive unit economics from month 14." }
+              { no: 1, title: "Executive Summary", summary: a.Q18 || "Not supplied in the verified submission." },
+              { no: 2, title: "Market & Opportunity", summary: a.Q20 || a.Q21 || "Not supplied in the verified submission." },
+              { no: 3, title: "Go-To-Market & Economics", summary: a.Q30 || a.Q31 || "Not supplied in the verified submission." }
             ]).map(bp => `
               <div style="padding-bottom: 12px; border-bottom: 1px solid #f1f5f9;">
                 <div style="font-size: 14px; font-weight: 700; color: #0f172a;">${bp.no}. ${bp.title}</div>
@@ -272,25 +273,8 @@ function renderSDGIcon(no, title, color) {
     `;
 
     // 6. TAB 2: VALUATION PANEL (Panel 4)
-    const valDimensions = m.valuation?.dimensions || {
-      "Market Opportunity": 8.5,
-      "Traction": 6.8,
-      "Revenue": 6.2,
-      "Team Strength": 8.4,
-      "Technology / IP": 7.6,
-      "Scalability": 8.3,
-      "Business Model": 7.9,
-      "Risk Adjustment": 6.9
-    };
-    const valContributions = m.valuation?.contribution || [
-      { label: "Market Opportunity", pct: 20, color: "#3b82f6" },
-      { label: "Traction", pct: 15, color: "#10b981" },
-      { label: "Revenue", pct: 10, color: "#f59e0b" },
-      { label: "Team", pct: 15, color: "#8b5cf6" },
-      { label: "Technology / IP", pct: 15, color: "#ec4899" },
-      { label: "Scalability", pct: 15, color: "#06b6d4" },
-      { label: "Risk Adjustment", pct: 10, color: "#64748b" }
-    ];
+    const valDimensions = m.valuation?.dimensions || {};
+    const valContributions = m.valuation?.contribution || [];
 
     const tabValuationHtml = `
       <div class="tab-content" id="tab-valuation">
@@ -304,7 +288,7 @@ function renderSDGIcon(no, title, color) {
             <div class="val-right-meta">
               <div class="m-item">
                 <div class="label">Stage</div>
-                <div class="value">Early Revenue</div>
+                <div class="value">${facts.current_stage || stageDisplay}</div>
               </div>
               <div class="m-item">
                 <div class="label">Methodology</div>
@@ -349,7 +333,7 @@ function renderSDGIcon(no, title, color) {
                 `).join("")}
               </div>
 
-              <button class="btn-primary" style="margin-top: 10px; font-size: 13px;" onclick="alert('Scorecard weighting calculation: Market 20% (8.5), Team 15% (8.4), Traction 15% (6.8), Tech 15% (7.6), Scalability 15% (8.3), Revenue 10% (6.2), Risk 10% (6.9). Composite Multiple = 1.14x Industry Baseline of ₹2.45 Cr = ₹2.80 Cr.')">
+              <button class="btn-primary" style="margin-top: 10px; font-size: 13px;" onclick="alert('The detailed valuation calculation is available from the verified submission and configured valuation methodology.')">
                 View Detailed Calculation →
               </button>
             </div>
@@ -359,20 +343,8 @@ function renderSDGIcon(no, title, color) {
     `;
 
     // 7. TAB 3: ROAD AHEAD (PANEL 5)
-    const timelineData = m.road_ahead?.timeline || [
-      { year: "2026", title: "Validation & Market Entry", color: "#10b981", bullets: ["100 pilot farmers", "Product V2 launch", "₹25L revenue", "3 states pilot"] },
-      { year: "2027", title: "Early Scale", color: "#3b82f6", bullets: ["500 farmers", "₹1.2 Cr revenue", "10 states expansion", "Strategic partners"] },
-      { year: "2028", title: "Expansion", color: "#8b5cf6", bullets: ["3,000 farmers", "₹3.5 Cr revenue", "Series A readiness", "15-member team"] },
-      { year: "2029", title: "National Scale", color: "#f59e0b", bullets: ["10,000 farmers", "₹10 Cr revenue", "Pan-India presence", "Profitable operations"] },
-      { year: "2030", title: "Global Opportunities", color: "#ef4444", bullets: ["50,000 farmers", "₹25 Cr revenue", "Exports to SE Asia", "Strategic global partners"] }
-    ];
-    const finProjections = m.road_ahead?.financial_projections || [
-      { year: "2026", revenue: 0.25, ebitda: 0.05, net_profit: 0.02 },
-      { year: "2027", revenue: 1.20, ebitda: 0.30, net_profit: 0.10 },
-      { year: "2028", revenue: 3.50, ebitda: 0.90, net_profit: 0.40 },
-      { year: "2029", revenue: 10.0, ebitda: 2.80, net_profit: 1.20 },
-      { year: "2030", revenue: 25.0, ebitda: 7.50, net_profit: 3.80 }
-    ];
+    const timelineData = m.road_ahead?.timeline || [];
+    const finProjections = m.road_ahead?.financial_projections || [];
 
     const tabRoadAheadHtml = `
       <div class="tab-content" id="tab-road-ahead">
@@ -441,27 +413,9 @@ function renderSDGIcon(no, title, color) {
     `;
 
     // 8. TAB 4: UNIQUENESS (PANEL 6)
-    const uniqDims = m.uniqueness?.dimensions || {
-      "Technology Integration": 8.5,
-      "Local Language & Accessibility": 8.2,
-      "Market Focus (Small Farmers)": 8.8,
-      "Cost Advantage": 8.1,
-      "Execution Capability": 7.9,
-      "Defensibility": 7.9
-    };
-    const uniqVps = m.uniqueness?.value_propositions || [
-      "Low-cost, easy-to-install IoT sensors designed for harsh rural conditions",
-      "AI-driven advisory in local languages (Marathi, Hindi, Gujarati, Telugu)",
-      "Designed for small and marginal landholdings under 2 hectares",
-      "Integrates micro-weather telemetry, soil nitrogen-phosphorus and crop data",
-      "Strong distribution partnerships with state FPOs and grassroots cooperatives"
-    ];
-    const testimonial = m.uniqueness?.testimonial || {
-      quote: "AgriSense gives us timely advice in our own language. It has helped me increase my yield by 20% while cutting unnecessary chemical sprays.",
-      author: "Ramesh Patil",
-      designation: "Farmer, Maharashtra (Pilot User)",
-      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120"
-    };
+    const uniqDims = m.uniqueness?.dimensions || {};
+    const uniqVps = m.uniqueness?.value_propositions || [];
+    const testimonial = m.uniqueness?.testimonial || null;
 
     const tabUniquenessHtml = `
       <div class="tab-content" id="tab-uniqueness">
@@ -472,7 +426,7 @@ function renderSDGIcon(no, title, color) {
           </div>
 
           <div class="uniqueness-statement-card">
-            "${m.uniqueness?.statement || s.summary || 'AgriSense combines ultra low-cost IoT sensors with AI-driven crop advisory tailored for small and marginal farmers, addressing a large underserved market with a simplified, local-language platform.'}"
+            "${m.uniqueness?.statement || s.summary || 'Differentiation statement not provided in the verified submission.'}"
           </div>
 
           <div class="uniqueness-grid">
@@ -497,42 +451,20 @@ function renderSDGIcon(no, title, color) {
           </div>
 
           <!-- Pilot User Testimonial -->
-          <div class="testimonial-quote-box">
-            <div class="testimonial-avatar">
-              <img src="${testimonial.avatar}" alt="${testimonial.author}">
+          ${testimonial ? `<div class="testimonial-quote-box">
+            <div class="testimonial-avatar"><img src="${testimonial.avatar || ""}" alt="${testimonial.author || "Customer"}"></div>
+            <div class="testimonial-body"><blockquote>"${testimonial.quote || ""}"</blockquote>
+              <div class="author">— ${testimonial.author || ""}${testimonial.designation ? ", " + testimonial.designation : ""}</div>
             </div>
-            <div class="testimonial-body">
-              <blockquote>"${testimonial.quote}"</blockquote>
-              <div class="author">— ${testimonial.author}, ${testimonial.designation}</div>
-            </div>
-          </div>
+          </div>` : `<p class="data-not-provided">No verified customer testimonial has been supplied for this profile.</p>`}
         </div>
       </div>
     `;
 
     // 9. TAB 5: INVESTABILITY (PANEL 7)
-    const invDims = m.investability?.dimensions || {
-      "Founder & Team": 8.8,
-      "Market Opportunity": 8.4,
-      "Traction": 7.8,
-      "Business Model": 8.2,
-      "Scalability": 8.6,
-      "Capital Efficiency": 7.4,
-      "Execution Evidence": 8.1,
-      "Risk Profile": 6.9
-    };
-    const strengths = m.investability?.strengths || [
-      "Strong founder-domain alignment with specialized agricultural engineering credentials",
-      "Clear market need and large underserved addressable opportunity across smallholder farming",
-      "Demonstrated early traction with 320+ paying clients and strong renewal rates",
-      "Scalable and capital-efficient asset-light sensor deployment model"
-    ];
-    const watchpoints = m.investability?.watch_points || [
-      "Customer acquisition cost needs continued validation across varied rural distribution channels",
-      "Second-line leadership development required as operations expand to multiple states",
-      "Regulatory approvals and pesticide spraying guidelines in target northern markets",
-      "Working capital requirements during seasonal agricultural sowing cycles"
-    ];
+    const invDims = m.investability?.dimensions || {};
+    const strengths = m.investability?.strengths || [];
+    const watchpoints = m.investability?.watch_points || [];
 
     const tabInvestabilityHtml = `
       <div class="tab-content" id="tab-investability">
@@ -588,20 +520,8 @@ function renderSDGIcon(no, title, color) {
     `;
 
     // 10. TAB 6: AI RESILIENCE (PANEL 8)
-    const aiDims = m.ai_resilience?.dimensions || {
-      "AI Exposure (Risk of Displacement)": 3.2,
-      "AI Augmentation Potential": 8.6,
-      "AI Dependency": 5.1,
-      "Human Moat": 7.8,
-      "Data / IP Moat": 7.9,
-      "Adaptability": 8.4,
-      "AI Opportunity": 8.8
-    };
-    const aiInsights = m.ai_resilience?.insights || [
-      { title: "Low risk of direct displacement", desc: "Physical on-ground hardware and localized field verification prevent AI-only software substitution." },
-      { title: "High potential for AI augmentation", desc: "LLMs enable hyper-localized agro-advisories in regional dialects (Marathi, Hindi, Kannada)." },
-      { title: "Proprietary field data creates defensibility", desc: "Over 120,000 real soil and moisture readings power unique edge-calibrated models." }
-    ];
+    const aiDims = m.ai_resilience?.dimensions || {};
+    const aiInsights = m.ai_resilience?.insights || [];
 
     const tabAiResilienceHtml = `
       <div class="tab-content" id="tab-ai-resilience">
@@ -654,24 +574,9 @@ function renderSDGIcon(no, title, color) {
     `;
 
     // 11. TAB 7: SDG IMPACT (PANEL 9)
-    const primarySdgs = m.sdg_impact?.primary_sdgs || [
-      { no: 2, title: "Zero Hunger", color: "#DDA63A" },
-      { no: 8, title: "Decent Work & Economic Growth", color: "#A21942" },
-      { no: 12, title: "Responsible Consumption & Production", color: "#BF8B2E" },
-      { no: 13, title: "Climate Action", color: "#3F7E44" }
-    ];
-    const sdgDims = m.sdg_impact?.dimensions || {
-      "Contribution to SDG Goals": 8.6,
-      "Measurability of Impact": 8.1,
-      "Scalability of Impact": 8.4,
-      "Alignment with National Priorities": 7.9
-    };
-    const sdgMetrics = m.sdg_impact?.metrics || [
-      { value: "1,200+", label: "Farmers Reached" },
-      { value: "18%", label: "Avg. Yield Increase" },
-      { value: "12,500 t", label: "Reduced (est.) CO2e" },
-      { value: "35%", label: "Women Farmers" }
-    ];
+    const primarySdgs = m.sdg_impact?.primary_sdgs || [];
+    const sdgDims = m.sdg_impact?.dimensions || {};
+    const sdgMetrics = m.sdg_impact?.metrics || [];
 
     const tabSdgImpactHtml = `
       <div class="tab-content" id="tab-sdg-impact">
@@ -712,25 +617,7 @@ function renderSDGIcon(no, title, color) {
     `;
 
     // 12. TAB 8: CLIENTS & REVENUE (PANEL 10)
-    const crData = m.clients_revenue || {
-      paying_clients: "320+",
-      revenue_cr: "₹1.8 Cr",
-      growth_pct: "120%",
-      states_count: 6,
-      key_clients: ["IFFCO", "Tata Trusts", "Mahyco", "Coromandel", "Mahindra Agri", "State Agriculture Dept."],
-      revenue_trend: [
-        { year: "2022", lakh: 25 },
-        { year: "2023", lakh: 80 },
-        { year: "2024", lakh: 180 }
-      ],
-      segments: [
-        { label: "Farmer Producer Organisations (FPOs)", pct: 45, color: "#10b981" },
-        { label: "Co-operatives", pct: 25, color: "#3b82f6" },
-        { label: "Agri-input Companies", pct: 15, color: "#f59e0b" },
-        { label: "Government Projects", pct: 10, color: "#8b5cf6" },
-        { label: "Direct Farmers", pct: 5, color: "#ec4899" }
-      ]
-    };
+    const crData = m.clients_revenue || { paying_clients: "Not disclosed", revenue_cr: a.Q31 || "Not disclosed", growth_pct: "Not disclosed", states_count: "Not disclosed", key_clients: [], revenue_trend: [] };
 
     const tabClientsRevenueHtml = `
       <div class="tab-content" id="tab-clients-revenue">
